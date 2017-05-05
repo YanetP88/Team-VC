@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+	<title>Node Authentication</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<style>
+		body 		{ padding-top:80px; word-wrap:break-word; }
+	</style>
+</head>
+<body>
+<div class="container">
+
+	<div class="page-header text-center">
+		<h1><span class="fa fa-anchor"></span> Profile Page</h1>
+		<a href="/logout" class="btn btn-default btn-sm">Logout</a>
+	</div>
+
+	<div class="row">
+
+		<!-- LOCAL INFORMATION -->
+		<div class="col-sm-6">
+			<div class="well">
+				<h3><span class="fa fa-user"></span> Local</h3>
+
+				<% if (user.localemail) { %>
+					<p>
+						<strong>id</strong>: <%= user._id %><br>
+						<strong>email</strong>: <%= user.localemail %><br>
+						<strong>password</strong>: <%= user.localpassword %>
+					</p>
+					
+					<a href="/unlink/local" class="btn btn-default">Unlink</a>
+				<% } else { %>
+					<a href="/connect/local" class="btn btn-default">Connect Local</a>
+				<% } %>
+
+			</div>
+		</div>
+
+		<!-- FACEBOOK INFORMATION -->
+		<div class="col-sm-6">
+			<div class="well">
+				<h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
+
+				<!-- check if the user has this token (is the user authenticated with this social account) -->
+				<% if (user.facebooktoken) { %>
+					<p>
+						<strong>id</strong>: <%= user.facebookid %><br>
+						<strong>token</strong>: <%= user.facebooktoken %><br>
+						<strong>email</strong>: <%= user.facebookemail %><br>
+						<strong>name</strong>: <%= user.facebookname %><br>
+					</p>
+
+					<a href="/unlink/facebook" class="btn btn-primary">Unlink</a>
+				<% } else { %>
+					<a href="/connect/facebook" class="btn btn-primary">Connect Facebook</a>
+				<% } %>
+
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		
+		<!-- GOOGLE INFORMATION -->
+		<div class="col-sm-6">
+			<div class="well">
+				<h3 class="text-danger"><span class="fa fa-google-plus"></span> Google+</h3>
+
+				<% if (user.googletoken) { %>
+					<p>
+						<strong>id</strong>: <%= user.googleid %><br>
+						<strong>token</strong>: <%= user.googletoken %><br>
+						<strong>email</strong>: <%= user.googleemail %><br>
+						<strong>name</strong>: <%= user.googlename %>
+					</p>
+
+					<a href="/unlink/google" class="btn btn-danger">Unlink</a>
+				<% } else { %>
+					<a href="/connect/google" class="btn btn-danger">Connect Google</a>
+				<% } %>
+
+			</div>
+		</div>
+		
+		<!-- WINDOWSLIVE INFORMATION -->
+		<div class="col-sm-6">
+			<div class="well">
+				<h3 class="text-info"><span class="fa fa-windows"></span> MS Windowslive</h3>
+
+				<% if (user.windowslivetoken) { %>
+					<p>
+						<strong>id</strong>: <%= user.windowsliveid %><br>
+						<strong>token</strong>: <%= user.windowslivetoken %><br>
+						<strong>email</strong>: <%= user.windowsliveemail %><br>
+						<strong>name</strong>: <%= user.windowslivename %>						
+					</p>
+
+					<a href="/unlink/windowslive" class="btn btn-danger">Unlink</a>
+				<% } else { %>
+					<a href="/connect/windowslive" class="btn btn-danger">Connect MS Windowlive</a>
+				<% } %>
+
+			</div>
+		</div>
+		
+	</div>
+
+	<div class="text-center">
+		<p>A demo by <a href="http://scotch.io">Scotch</a>.</p>
+		<p>Modified for SQL Sequelize <a href="http://anneblankert.blogspot.nl/2015/06/node-authentication-migrate-from.html">article</a>.</p>
+	</div>
+
+</div>
+</body>
+</html>
