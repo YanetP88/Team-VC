@@ -1,24 +1,107 @@
+var configDB = require('./database.js');
+const usuariosController = require('../app/controllers/usuarios');
+const proyectosController = require('../app/controllers/proyectos');
+var Sequelize = require('sequelize');
+//var pg = require('pg').native;
+//var pghstore = require('pg-hstore');
+var sequelize = new Sequelize(configDB.url);
+
+var User       = sequelize.import('../app/models/users');
+User.sync();
+var Project   = sequelize.import('../app/models/project');
+Project.sync();
 module.exports = function(app, passport) {
 
 // normal routes ===============================================================
 
     // show the home page (will also have our login links)
     app.get('/', function(req, res) {
-        res.render('index.ejs');
+        res.render('signup.ejs');
     });
 
+   app.get('/inicio', function(req, res) {
+        res.render('signup.ejs');
+    });
     // PROFILE SECTION =========================
-    app.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile.ejs', {
+   /* app.get('/projects', isLoggedIn, function(req, res) {
+        res.render('projects.ejs', {
             user : req.user
         });
-    });
+    });*/
 
     // LOGOUT ==============================
     app.get('/logout', function(req, res) {
         req.logout();
         res.redirect('/');
     });
+// =============================================================================
+// CRUD MODEL USERS ==================================================
+// =============================================================================
+
+//app.get('/api/usuarios', isLoggedIn, usuariosController.getUsuarios);
+app.get('/usuarios', isLoggedIn, function(req, res,next) {  //Todos los usuarios
+   User.findAll().then(function(users) {
+        res.render('usuarios.ejs', {
+            users : users
+        });
+  });
+});
+
+app.get('/usuarios/:email', isLoggedIn, function(req, res) {  //Devuelve Un usuario segun email
+  User.findOne({ where: { email: req.params.email }}).then(function(users) {
+        res.render('usuario.ejs', {
+            users : users
+        });
+  });
+});
+
+app.post('/usuarios', function(req, res) {  //Inserta usuarios
+  User.create({ email: req.body.email }).then(function() {
+    res.redirect('/profile');
+  });
+});
+
+app.get('/form-usuarios',  isLoggedIn, function(req, res) {
+        res.render('form-usuarios.ejs');
+    });
+
+// =============================================================================
+// CRUD MODEL PROJECTS ==================================================
+// =============================================================================
+
+//app.get('/api/usuarios', isLoggedIn, usuariosController.getUsuarios);
+app.get('/projects', isLoggedIn, function(req, res,next) {  //Todos los proyectos
+   Project.findAll().then(function(project) {
+        res.render('projects.ejs', {
+            project : project
+        });
+  });
+});
+
+/*app.get('/projects/:id', isLoggedIn, function(req, res) {  //Devuelve Un usuario segun email
+  User.findOne({ where: { email: req.params.email }}).then(function(users) {
+        res.render('projects.ejs', {
+            users : users
+        });
+  });
+});*/
+
+app.post('/projects', function(req, res) {  //Inserta usuarios
+    console.log(req.body.name);
+  Project.create({ name: req.body.name, 
+    construction_time: req.body.construction_time,
+    registry_date : req.body.registry_date,
+    creation_date : req.body.creation_date,
+    description : req.body.description,
+    address: req.body.address  }).then(function() {
+ 
+    res.redirect('/projects');
+  });
+});
+
+/*app.get('/projects',  isLoggedIn, function(req, res) {
+        res.render('form-usuarios.ejs');
+    });*/
 
 // =============================================================================
 // AUTHENTICATE (FIRST LOGIN) ==================================================
@@ -28,25 +111,39 @@ module.exports = function(app, passport) {
         // LOGIN ===============================
         // show the login form
         app.get('/login', function(req, res) {
-            res.render('login.ejs', { message: req.flash('loginMessage') });
+            res.render('inicio.ejs', { message: req.flash('loginMessage') });
         });
 
         // process the login form
-        app.post('/login', passport.authenticate('local-login', {
-            successRedirect : '/profile', // redirect to the secure profile section
-            failureRedirect : '/login', // redirect back to the signup page if there is an error
+    
+    app.post('/login',function(req,res){
+    req.checkBody('email', 'Email is required').notEmpty();
+    req.checkBody('password', 'Password is required').notEmpty();
+    var errors = req.validationErrors();
+
+    if (errors) {
+
+        res.render('inicio',{message: 'errors'});
+
+    }
+    else{
+        passport.authenticate('local-login', {
+            successRedirect : '/projects', // redirect to the secure profile section
+            failureRedirect : '/signup', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
-        }));
+        })(req,res); // <---- ADDD THIS
+    }
+});
 
         // SIGNUP =================================
         // show the signup form
         app.get('/signup', function(req, res) {
-            res.render('signup.ejs', { message: req.flash('loginMessage') });
+            res.render('inicio.ejs', { message: req.flash('loginMessage') });
         });
 
         // process the signup form
         app.post('/signup', passport.authenticate('local-signup', {
-            successRedirect : '/profile', // redirect to the secure profile section
+            successRedirect : '/projects', // redirect to the secure profile section
             failureRedirect : '/signup', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
         }));
@@ -96,7 +193,7 @@ module.exports = function(app, passport) {
             res.render('connect-local.ejs', { message: req.flash('loginMessage') });
         });
         app.post('/connect/local', passport.authenticate('local-signup', {
-            successRedirect : '/profile', // redirect to the secure profile section
+            successRedirect : '/projects', // redirect to the secure profile section
             failureRedirect : '/connect/local', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
         }));
@@ -153,9 +250,9 @@ module.exports = function(app, passport) {
         user.password = null;
         user.save()
             .then(function ()
-            {res.redirect('/profile');})
+            {res.redirect('/projects');})
             .catch(function () 
-            {res.redirect('/profile');});
+            {res.redirect('/projects');});
     });
 
     /*// facebook -------------------------------

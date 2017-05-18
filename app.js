@@ -1,4 +1,5 @@
 var express = require('express');
+var expressValidator = require ('express-validator');
 
 var app = express();
 var multer = require('multer')
@@ -19,20 +20,13 @@ var session = require('express-session');
 
 var dateFormat = require('dateformat');
 var now = new Date();
-
+app.use(expressValidator());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-
-/***************Mongodb configuratrion********************/
-//var mongoose = require('mongoose');
-//var configDB = require('./config/database.js');
-//configuration ===============================================================
-//mongoose.connect(configDB.url); // connect to our database
-
-
 require('./config/passport')(passport); // pass passport for configuration
 
+//app.use(expressValidator);
 //set up our express application
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)

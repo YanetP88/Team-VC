@@ -62,7 +62,7 @@ module.exports = function(passport) {
             
                 // check to see if there's already a user with that email
                 if (existingUser) 
-                    return done(null, false, req.flash('loginMessage', 'That email is already taken.'));
+                    return done(null, false, req.flash('loginMessage', 'El usuario ya existe.'));
 
                 //  If we're logged in, we're connecting a new local account.
                 if(req.user) {
@@ -104,9 +104,9 @@ module.exports = function(passport) {
             User.findOne({ where: { email: email }})
                 .then(function(user) {
                     if (!user) {
-                        done(null, false, req.flash('loginMessage', 'Unknown user'));
+                        done(null, false, req.flash('loginMessage', 'Usuario no registrado'));
                     } else if (!user.validPassword(password)) {
-                        done(null, false, req.flash('loginMessage', 'Wrong password'));
+                        done(null, false, req.flash('loginMessage', 'Contraseña incorrecta'));
                     } else {
                         done(null, user);
                     }
