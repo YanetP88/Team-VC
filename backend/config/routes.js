@@ -18,11 +18,15 @@ module.exports = function(app, passport) {
 
     // show the home page (will also have our login links)
     app.get('/', function(req, res) {
-        res.render('signup.ejs');
+        res.render('signup.ejs',{
+            message: {}
+        });
     });
 
    app.get('/inicio', function(req, res) {
-        res.render('signup.ejs');
+        res.render('signup.ejs',{
+            message: {}
+        });
     });
     // PROFILE SECTION =========================
    /* app.get('/projects', isLoggedIn, function(req, res) {
