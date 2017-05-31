@@ -1,10 +1,12 @@
 var configDB = require('./database.js');
+var express = require('express');
 const usuariosController = require('../app/controllers/usuarios');
 const proyectosController = require('../app/controllers/proyectos');
 var Sequelize = require('sequelize');
 //var pg = require('pg').native;
 //var pghstore = require('pg-hstore');
 var sequelize = new Sequelize(configDB.url);
+var router = express.Router(); 
 
 var User       = sequelize.import('../app/models/users');
 User.sync();
@@ -68,25 +70,25 @@ app.get('/form-usuarios',  isLoggedIn, function(req, res) {
 // =============================================================================
 // CRUD MODEL PROJECTS ==================================================
 // =============================================================================
-
+app.route('/projects')
 //app.get('/api/usuarios', isLoggedIn, usuariosController.getUsuarios);
-app.get('/projects', isLoggedIn, function(req, res,next) {  //Todos los proyectos
+.get(isLoggedIn, function(req, res,next) {  //Todos los proyectos
    Project.findAll().then(function(project) {
         res.render('projects.ejs', {
             project : project
         });
   });
-});
+})
 
-/*app.get('/projects/:id', isLoggedIn, function(req, res) {  //Devuelve Un usuario segun email
-  User.findOne({ where: { email: req.params.email }}).then(function(users) {
+.get( isLoggedIn, function(req, res) {  //Devuelve Un prooyecto segun id
+  Project.findOne({ where: { id: req.params.id }}).then(function(project) {
         res.render('projects.ejs', {
-            users : users
+            project : project
         });
   });
-});*/
+})
 
-app.post('/projects', function(req, res) {  //Inserta usuarios
+.post(function(req, res) {  //Inserta projecto
     console.log(req.body.name);
   Project.create({ name: req.body.name, 
     construction_time: req.body.construction_time,

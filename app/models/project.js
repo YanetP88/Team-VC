@@ -34,7 +34,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true,
       defaultValue: ''
     },
-    beneficiaries: {
+    benefits: {
       type: DataTypes.STRING(255),
       allowNull: true,
       defaultValue: ''

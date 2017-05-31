@@ -1,6 +1,6 @@
 var express = require('express');
 var expressValidator = require ('express-validator');
-
+var router = express.Router();
 var app = express();
 var multer = require('multer')
 var constants = require('constants');
@@ -21,6 +21,7 @@ var session = require('express-session');
 var dateFormat = require('dateformat');
 var now = new Date();
 app.use(expressValidator());
+app.use(router);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
