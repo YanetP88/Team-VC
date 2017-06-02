@@ -1,0 +1,153 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Link</a></li>
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                    aria-expanded="false">Dropdown<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+    <div class="row"></div>
+</div>
+<!-- Navegacion de la seccion central-->
+<div class="container">
+    <section class="main">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <ul class="nav nav-tabs">
+                    <li role="presentation"><a href="#">USUARIO</a></li>
+                    <li role="presentation"><a href="#">CLIENTE</a></li>
+                    <li role="presentation"><a href="#">PROYECTO</a></li>
+                    <li role="presentation"><a href="#">MAPA</a></li>
+                    <li role="presentation"><a href="#">ADMINISTRADOR</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <br>
+
+        <div class="container">
+            <h3>Adicionar Proyecto</h3>
+
+            <br>
+            <form class="" method="POST">
+                <div class="form-group col-sm-4 col-md-3">
+                    <label for="nombre">Nombre </label>
+                    <input class="form-control" id="nombre" type="text" name="name" ng-model="formData.name" required>
+                </div>
+                <div class="form-group col-sm-4 col-md-3">
+                    <label for="nombre">Tiempo de Construcción</label>
+                    <input class="form-control" id="tiempo" type="text" name="construction_time" ng-model="formData.construction_time" required>
+                </div>
+                <div class="form-group col-sm-4 col-md-3">
+                    <label for="nombre">Personas Beneficiadas</label>
+                    <input class="form-control" id="verificados" name="verificados" type="text" ng-model="formData.verificados" required>
+                </div>
+                <div class="form-group col-sm-4 col-md-3">
+                    <label for="nombre">Videos</label>
+                    <input class="form-control" id="videos" name="videos" type="text" ng-model="formData.Videos" required>
+                </div>
+                <div class="form-group col-sm-4 col-md-3">
+                    <label for="nombre">Descripción</label>
+                    <input class="form-control" id="descripcion" type="text" name="description" ng-model="formData.description" required>
+                </div>
+                <div class="form-group col-sm-4 col-md-3">
+                    <label for="nombre">Inversión</label>
+                    <input class="form-control" id="inversion" name="inversion" type="text" ng-model="formData.inversion" required>
+                </div>
+                <div class="form-group col-sm-4 col-md-3">
+                    <label for="nombre">Involucrados</label>
+                    <input class="form-control" id="involucrados" type="text" name="involucrados"  ng-model="formData.involucrados" required>
+                </div>
+                <div class="form-group col-sm-4 col-md-3">
+                    <label for="nombre">Dirección</label>
+                    <input class="form-control" name="address" id="option" ng-model="formData.address" required>
+
+                </div>
+                <div class="form-group col-sm-4 col-md-3">
+                    <label for="nombre">Fecha de Creación</label>
+                    <input type="date" class="form-control" id="fecha_c" name="creation_date" ng-model="formData.creation_date" required>
+                </div>
+                <div class="form-group col-sm-4 col-md-3">
+                    <label for="nombre">Motivación</label>
+                    <input class="form-control" id="motivacion" name="motivacion" type="text" ng-model="formData.motivacion" required>
+                </div>
+                <div class="form-group col-sm-4 col-md-3">
+                    <label for="nombre">Imagenes</label>
+                    <input class="form-control" id="imagenes" name="imagenes" type="text" ng-model="formData.imagenes" required>
+                </div>
+                <div class="form-group col-sm-4 col-md-3">
+                    <label for="nombre">Fecha de Registro</label>
+                    <input type="date" class="form-control" name="registry_date" ng-model="formData.registry_date" id="date"  required>
+                </div>
+                <div class="form-group col-xs-8 col-sm-8 col-md-9"></div>
+                <div class="form-group col-xs-4 col-sm-4 col-md-3">
+                    <button class="btn btn-primary">Cancelar</button>
+                    <button class="btn btn-primary" ng-click="createProject()">Crear</button>
+                </div>
+            </form>
+
+        </div>
+        <br>
+        <div class="container">
+            <h3>Listado de Proyectos</h3>
+
+            <div class="table-responsive">
+                <table class="table table-condensed">
+
+                    <tr class="danger">
+                        <th>No</th>
+                        <th>Nombre</th>
+                        <th>Fecha de creación</th>
+                        <th>Personas Beneficiadas</th>
+                        <th>Acciones</th>
+                    </tr>
+
+                    <tr ng-repeat="project in projects">
+                        <td>{{project.id}}</td>
+                        <td>{{project.name}}</td>
+                        <td>{{project.createdAt | date:'MM/dd/yyyy @ h:mma'}}</td>
+                        <td>{{project.benefits}}</td>
+                        <td>
+                            <button type="button" data-toggle="modal" data-target="#myModal"><i
+                                    class="fa fa-pencil"></i></button>
+                            <button type="button" class='delete' ng-click="deleteProject(project.id)"><i
+                                    class="fa fa-trash"></i></button>
+                            <button type="button"><i class="fa fa-file-o"></i></button>
+                        </td>
+                    </tr>
+
+                </table>
+                <ul class="pagination">
+                    <li><a href="#">1</a></li>
+                    <li class="active"><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+</div>
+
+

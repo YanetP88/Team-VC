@@ -2,11 +2,6 @@
 
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('project', {
-    id: {
-      type: DataTypes.INTEGER(10),
-      primaryKey: true,
-      autoincrement: true
-    },
     name: {
       type: DataTypes.STRING(100),
       allowNull: false,
@@ -47,18 +42,6 @@ module.exports = function(sequelize, DataTypes) {
     registry_date: {
       type: DataTypes.DATE,
       allowNull: false
-    }
-  }, {
-    
-    getterMethods: {
-      someValue: function() {
-        return this.someValue;
-      }
-    },
-    setterMethods: {
-      someValue: function(value) {
-        this.someValue = value;
-      }
     }
   });
 };
