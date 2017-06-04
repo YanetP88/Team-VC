@@ -34,11 +34,7 @@ app.use(cookieParser()); // read cookies (needed for auth)
 //app.use(bodyParser()); // get information from html forms
 
 //view engine setup
-app.use(express.static(path.join(__dirname, '../frontend/angular')));
-app.set('views', path.join(__dirname, '../frontend/views'));
-// app.set('view engine', 'ejs');
-//app.set('view engine', 'ejs'); // set up ejs for templating
-
+app.use(express.static(path.join(__dirname, '../frontend/')));
 
 //required for passport
 //app.use(session({ secret: 'iloveyoudear...' })); // session secret

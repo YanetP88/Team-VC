@@ -1,0 +1,31 @@
+{
+  "name": "moment",
+  "license": "MIT",
+  "main": "moment.js",
+  "ignore": [
+    "**/.*",
+    "benchmarks",
+    "bower_components",
+    "meteor",
+    "node_modules",
+    "scripts",
+    "tasks",
+    "test",
+    "component.json",
+    "composer.json",
+    "CONTRIBUTING.md",
+    "ender.js",
+    "Gruntfile.js",
+    "Moment.js.nuspec",
+    "package.js",
+    "package.json",
+    "ISSUE_TEMPLATE.md",
+    "typing-tests"
+  ],
+  "_source": "nexus+http://nexus.uclv.edu.cu:8081/repository/bower-proxy/moment",
+  "_target": "^2.18.1",
+  "_release": "2.18.1",
+  "version": "2.18.1",
+  "_originalSource": "moment",
+  "_direct": true
+}

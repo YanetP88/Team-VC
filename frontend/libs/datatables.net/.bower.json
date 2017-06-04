@@ -1,0 +1,41 @@
+{
+  "name": "datatables.net",
+  "description": "DataTables for jQuery ",
+  "main": [
+    "js/jquery.dataTables.js"
+  ],
+  "keywords": [
+    "filter",
+    "sort",
+    "DataTables",
+    "jQuery",
+    "table",
+    "DataTables"
+  ],
+  "dependencies": {
+    "jquery": ">=1.7"
+  },
+  "moduleType": [
+    "globals",
+    "amd",
+    "node"
+  ],
+  "ignore": [
+    "composer.json",
+    "datatables.json",
+    "package.json"
+  ],
+  "authors": [
+    {
+      "name": "SpryMedia Ltd",
+      "homepage": "https://datatables.net"
+    }
+  ],
+  "homepage": "https://datatables.net",
+  "license": "MIT",
+  "_source": "nexus+http://nexus.uclv.edu.cu:8081/repository/bower-proxy/datatables.net",
+  "_target": ">=1.10.9",
+  "_release": "1.10.15",
+  "version": "1.10.15",
+  "_originalSource": "datatables.net"
+}
