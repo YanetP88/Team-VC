@@ -1,19 +1,19 @@
 require.config({
     baseUrl: '/',
     paths: {
-        jquery              : 'libs/jquery/dist/jquery.min',
-        boostrap            : 'libs/bootstrap/dist/js/bootstrap.min',
-        angular             : 'libs/angular/angular',
-        angularAMD          : 'libs/angularAMD/dist/angularAMD.min',
-        ngload              : 'libs/angularAMD/dist/ngload.min',
-        angular_animate     : 'libs/angular-animate/angular-animate.min',
-        angular_resource    : 'libs/angular-resource/angular-resource',
-        angular_route       : 'libs/angular-route/angular-route',
-        angular_css         : 'libs/angular-css/angular-css',
-        angular_middle      : 'libs/angular-middle/angular-middle',
-        cropper             : 'libs/cropper/cropper',
-        datatables          : 'libs/datatables/js/jquery.dataTables.min',
-        datatables_bs       : 'libs/datatables_bs/js/dataTables.bootstrap.min',
+        jquery                   : 'libs/jquery/dist/jquery.min',
+        boostrap                 : 'libs/bootstrap/dist/js/bootstrap.min',
+        angular                  : 'libs/angular/angular',
+        angularAMD               : 'libs/angularAMD/dist/angularAMD.min',
+        ngload                   : 'libs/angularAMD/dist/ngload.min',
+        angular_animate          : 'libs/angular-animate/angular-animate.min',
+        angular_resource         : 'libs/angular-resource/angular-resource',
+        angular_route            : 'libs/angular-route/angular-route',
+        angular_css              : 'libs/angular-css/angular-css',
+        angular_middle           : 'libs/angular-middle/angular-middle',
+        cropper                  : 'libs/cropper/cropper',
+        u_datatables             : 'libs/Ultimate-DataTable/dist/3.3.1-SNAPSHOT/js/ultimate-datatable-3.3.1-SNAPSHOT.min',
+        moment                   : 'libs/moment/min/moment.min',
 
         // APP MODULES SERVICE, CONTROLLERS, and PERSONAL SCRIPTS
         // HOME
@@ -24,7 +24,6 @@ require.config({
         // USERS
         UsersController       : 'app/users/_UsersController',
         UsersLoginController  : 'app/users/_UsersLoginController',
-        UserProfileController : 'app/users/_UserProfileController',
         UsersServices         : 'app/users/_UsersServices',
         //UsersDirectives      : 'app/users/_UsersDirectives',
         //cropAvatar           : 'app/users/cropAvatar'
@@ -41,7 +40,7 @@ require.config({
         angular             : ['jquery'],
         boostrap            : ['jquery'],
         cropper             : ['jquery','boostrap'],
-        datatables_bs       : ['jquery','boostrap','datatables'],
+        u_datatables        : ['jquery','boostrap','moment'],
         angularAMD          : ['angular'],
         ngload              : ['angularAMD'],
         angular_animate     : ['angular'],
@@ -49,11 +48,6 @@ require.config({
         angular_route       : ['angular'],
         angular_css         : ['angular','angular_route'],
         angular_middle      : ['angular']
-    },
-    map: {
-      '*': {
-        'datatables.net': 'datatables',
-        }
     },
     deps: ['app']
 });

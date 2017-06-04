@@ -1,6 +1,13 @@
-define(['angularAMD', 'angular_route', 'angular_css', 'angular_middle', 'UsersServices'], function (angularAMD) {
+define(['angularAMD', 'angular_route', 'angular_css', 'angular_middle', 'UsersServices','u_datatables'], function (angularAMD) {
 
-    var app = angular.module("nehuenChess", ['ngRoute', 'door3.css', 'UsersServices', 'middle']);
+    var app = angular.module("iDoo",
+        [
+            'ultimateDataTableServices',
+            'ngRoute',
+            'door3.css',
+            'UsersServices',
+            'middle'
+        ]);
 
     app.config(function ($routeProvider) {
         $routeProvider
@@ -38,14 +45,14 @@ define(['angularAMD', 'angular_route', 'angular_css', 'angular_middle', 'UsersSe
                 angularAMD.route({
                     templateUrl: 'app/users/user_home/_UserHomeView.html',
                     controller: 'UsersController',
-                    css: ['app/users/user_new/_NewUser.css','app/users/user_home/_UserHome.css', 'app/users/user_new/cropAvatar.css', 'libs/cropper/cropper.min.css']
+                    css: ['app/users/user_new/_NewUser.css', 'app/users/user_home/_UserHome.css', 'app/users/user_new/cropAvatar.css', 'libs/cropper/cropper.min.css']
                 })
             )
             .when("/Projects",
                 angularAMD.route({
                     templateUrl: 'app/projects/projects_home/_ProjectsHomeView.html',
                     controller: 'ProjectsHomeController',
-                    css: ['libs/datatables_bs/css/dataTables.bootstrap.min.css'] // fix this
+                    css: ['libs/Ultimate-DataTable/dist/3.3.1-SNAPSHOT/css/ultimate-datatable-3.3.1-SNAPSHOT.min.css'] // fix this
                 })
             )
             .when("/Project",
