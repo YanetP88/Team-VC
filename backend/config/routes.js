@@ -57,15 +57,17 @@ module.exports = function (app, passport) {
     app.post('/api/projects', function (req, res) {
         registry_date = new Date(req.body.registry_date);
         creation_date = new Date(req.body.creation_date);
+        construction_time = new Date(req.body.construction_time);
         Project.create({
             name: req.body.name,
-            construction_time: req.body.construction_time,
+            description: req.body.description,
+            investment: req.body.investment,
+            motivation: req.body.motivation,
+            benefits: req.body.benefits,
+            address: req.body.address,
             registry_date: registry_date,
             creation_date: creation_date,
-            description: req.body.description,
-            address: req.body.address,
-            motivation: req.body.motivation,
-            beneficts: req.body.beneficts
+            construction_time: construction_time
         }).then(function (project) {
             res.send({mess: 'Project ' + project.name + ' was Created'})
         });
@@ -74,19 +76,23 @@ module.exports = function (app, passport) {
     app.post('/api/projects/:project_id', function (req, res) {
         registry_date = new Date(req.body.registry_date);
         creation_date = new Date(req.body.creation_date);
+        construction_time = new Date(req.body.construction_time);
         Project.update({
             name: req.body.name,
-            construction_time: req.body.construction_time,
+            description: req.body.description,
+            investment: req.body.investment,
+            motivation: req.body.motivation,
+            benefits: req.body.benefits,
+            address: req.body.address,
             registry_date: registry_date,
             creation_date: creation_date,
-            description: req.body.description,
-            address: req.body.address
+            construction_time: construction_time
         }, {
             where: {
                 id: req.params.project_id
             }
         }).then(function (project) {
-            res.json(project)
+            res.send({mess:'Update ok!'});
         });
     });
 

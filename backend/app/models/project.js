@@ -12,14 +12,6 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
             defaultValue: ''
         },
-        creation_date: {
-            type: DataTypes.DATE,
-            allowNull: false
-        },
-        construction_time: {
-            type: DataTypes.DATE,
-            allowNull: false
-        },
         investment: {
             type: "DOUBLE",
             allowNull: true
@@ -42,6 +34,14 @@ module.exports = function (sequelize, DataTypes) {
         registry_date: {
             type: DataTypes.DATE,
             allowNull: false
-        }
+        },
+        creation_date: {
+            type: DataTypes.DATE,
+            allowNull: false
+        },
+        construction_time: {
+            type: DataTypes.DATE,
+            allowNull: false
+        },
     });
 };
