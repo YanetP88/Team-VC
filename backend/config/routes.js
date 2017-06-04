@@ -23,18 +23,6 @@ module.exports = function (app, passport) {
         });
     });
 
-    app.get('/inicio', function (req, res) {
-        res.render('signup.ejs', {
-            message: {}
-        });
-    });
-    // PROFILE SECTION =========================
-    /* app.get('/projects', isLoggedIn, function(req, res) {
-     res.render('projects.ejs', {
-     user : req.user
-     });
-     });*/
-
     // LOGOUT ==============================
     app.get('/logout', function (req, res) {
         req.logout();
@@ -54,6 +42,18 @@ module.exports = function (app, passport) {
         });
     });
 
+    app.get('/api/projects/:project_id', function (req, res) {
+        Project.findOne(
+            {
+                where: {
+                    id: req.params.project_id
+                }
+            }
+        ).then(function (project) {
+            res.json(project);
+        });
+    });
+
     app.post('/api/projects', function (req, res) {
         registry_date = new Date(req.body.registry_date);
         creation_date = new Date(req.body.creation_date);
@@ -63,11 +63,30 @@ module.exports = function (app, passport) {
             registry_date: registry_date,
             creation_date: creation_date,
             description: req.body.description,
+            address: req.body.address,
+            motivation: req.body.motivation,
+            beneficts: req.body.beneficts
+        }).then(function (project) {
+            res.send({mess: 'Project ' + project.name + ' was Created'})
+        });
+    });
+
+    app.post('/api/projects/:project_id', function (req, res) {
+        registry_date = new Date(req.body.registry_date);
+        creation_date = new Date(req.body.creation_date);
+        Project.update({
+            name: req.body.name,
+            construction_time: req.body.construction_time,
+            registry_date: registry_date,
+            creation_date: creation_date,
+            description: req.body.description,
             address: req.body.address
-        }).then(function () {
-            Project.findAll().then(function (projects) {
-                res.json(projects);
-            });
+        }, {
+            where: {
+                id: req.params.project_id
+            }
+        }).then(function (project) {
+            res.json(project)
         });
     });
 

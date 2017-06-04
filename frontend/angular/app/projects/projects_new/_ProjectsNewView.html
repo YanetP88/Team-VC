@@ -1,0 +1,116 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Link</a></li>
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                    aria-expanded="false">Dropdown<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+</nav>
+
+<div class="container">
+    <div class="row"></div>
+</div>
+<!-- Navegacion de la seccion central-->
+<div class="container">
+    <section class="main">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <ul class="nav nav-tabs">
+                    <li role="presentation"><a href="#">USUARIO</a></li>
+                    <li role="presentation"><a href="#">CLIENTE</a></li>
+                    <li role="presentation"><a href="#">PROYECTO</a></li>
+                    <li role="presentation"><a href="#">MAPA</a></li>
+                    <li role="presentation"><a href="#">ADMINISTRADOR</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <br>
+
+        <div class="container">
+            <h3>Adicionar Proyecto</h3>
+
+            <br>
+            <form class="" method="POST">
+                <div class="form-group col-sm-4 col-md-3">
+                    <label for="nombre">Nombre </label>
+                    <input class="form-control" id="nombre" type="text" name="name" ng-model="formData.name" required>
+                </div>
+                <div class="form-group col-sm-4 col-md-3">
+                    <label for="nombre">Tiempo de Construcción</label>
+                    <input class="form-control" id="tiempo" type="text" name="construction_time"
+                           ng-model="formData.construction_time" required>
+                </div>
+                <div class="form-group col-sm-4 col-md-3">
+                    <label for="nombre">Personas Beneficiadas</label>
+                    <input class="form-control" id="verificados" name="verificados" type="text"
+                           ng-model="formData.verificados" required>
+                </div>
+                <div class="form-group col-sm-4 col-md-3">
+                    <label for="nombre">Videos</label>
+                    <input class="form-control" id="videos" name="videos" type="text" ng-model="formData.Videos"
+                           required>
+                </div>
+                <div class="form-group col-sm-4 col-md-3">
+                    <label for="nombre">Descripción</label>
+                    <input class="form-control" id="descripcion" type="text" name="description"
+                           ng-model="formData.description" required>
+                </div>
+                <div class="form-group col-sm-4 col-md-3">
+                    <label for="nombre">Inversión</label>
+                    <input class="form-control" id="inversion" name="inversion" type="text"
+                           ng-model="formData.inversion" required>
+                </div>
+                <div class="form-group col-sm-4 col-md-3">
+                    <label for="nombre">Involucrados</label>
+                    <input class="form-control" id="involucrados" type="text" name="involucrados"
+                           ng-model="formData.involucrados" required>
+                </div>
+                <div class="form-group col-sm-4 col-md-3">
+                    <label for="nombre">Dirección</label>
+                    <input class="form-control" name="address" id="option" ng-model="formData.address" required>
+
+                </div>
+                <div class="form-group col-sm-4 col-md-3">
+                    <label for="nombre">Fecha de Creación</label>
+                    <input type="date" class="form-control" id="fecha_c" name="creation_date"
+                           ng-model="formData.creation_date" required>
+                </div>
+                <div class="form-group col-sm-4 col-md-3">
+                    <label for="nombre">Motivación</label>
+                    <input class="form-control" id="motivacion" name="motivacion" type="text"
+                           ng-model="formData.motivacion" required>
+                </div>
+                <div class="form-group col-sm-4 col-md-3">
+                    <label for="nombre">Imagenes</label>
+                    <input class="form-control" id="imagenes" name="imagenes" type="text" ng-model="formData.imagenes"
+                           required>
+                </div>
+                <div class="form-group col-sm-4 col-md-3">
+                    <label for="nombre">Fecha de Registro</label>
+                    <input type="date" class="form-control" name="registry_date" ng-model="formData.registry_date"
+                           id="date" required>
+                </div>
+                <div class="form-group col-xs-8 col-sm-8 col-md-9"></div>
+                <div class="form-group col-xs-4 col-sm-4 col-md-3">
+                    <a href="#/Projects" class="btn btn-primary" >Cancelar</a>
+                    <a href="" class="btn btn-primary" ng-click="createProject()">Crear</a>
+                </div>
+            </form>
+
+        </div>
+    </section>
+</div>
+
+

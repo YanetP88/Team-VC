@@ -46,108 +46,37 @@
         <br>
 
         <div class="container">
-            <h3>Adicionar Proyecto</h3>
-
-            <br>
-            <form class="" method="POST">
-                <div class="form-group col-sm-4 col-md-3">
-                    <label for="nombre">Nombre </label>
-                    <input class="form-control" id="nombre" type="text" name="name" ng-model="formData.name" required>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 >Listado de Proyectos</h3>
                 </div>
-                <div class="form-group col-sm-4 col-md-3">
-                    <label for="nombre">Tiempo de Construcción</label>
-                    <input class="form-control" id="tiempo" type="text" name="construction_time" ng-model="formData.construction_time" required>
+                <div class="col-md-6" style="text-align: right">
+                    <a href="#/Project" class="btn btn-default">
+                        <span class="glyphicon glyphicon-plus-sign"></span>Create New
+                    </a>
                 </div>
-                <div class="form-group col-sm-4 col-md-3">
-                    <label for="nombre">Personas Beneficiadas</label>
-                    <input class="form-control" id="verificados" name="verificados" type="text" ng-model="formData.verificados" required>
-                </div>
-                <div class="form-group col-sm-4 col-md-3">
-                    <label for="nombre">Videos</label>
-                    <input class="form-control" id="videos" name="videos" type="text" ng-model="formData.Videos" required>
-                </div>
-                <div class="form-group col-sm-4 col-md-3">
-                    <label for="nombre">Descripción</label>
-                    <input class="form-control" id="descripcion" type="text" name="description" ng-model="formData.description" required>
-                </div>
-                <div class="form-group col-sm-4 col-md-3">
-                    <label for="nombre">Inversión</label>
-                    <input class="form-control" id="inversion" name="inversion" type="text" ng-model="formData.inversion" required>
-                </div>
-                <div class="form-group col-sm-4 col-md-3">
-                    <label for="nombre">Involucrados</label>
-                    <input class="form-control" id="involucrados" type="text" name="involucrados"  ng-model="formData.involucrados" required>
-                </div>
-                <div class="form-group col-sm-4 col-md-3">
-                    <label for="nombre">Dirección</label>
-                    <input class="form-control" name="address" id="option" ng-model="formData.address" required>
-
-                </div>
-                <div class="form-group col-sm-4 col-md-3">
-                    <label for="nombre">Fecha de Creación</label>
-                    <input type="date" class="form-control" id="fecha_c" name="creation_date" ng-model="formData.creation_date" required>
-                </div>
-                <div class="form-group col-sm-4 col-md-3">
-                    <label for="nombre">Motivación</label>
-                    <input class="form-control" id="motivacion" name="motivacion" type="text" ng-model="formData.motivacion" required>
-                </div>
-                <div class="form-group col-sm-4 col-md-3">
-                    <label for="nombre">Imagenes</label>
-                    <input class="form-control" id="imagenes" name="imagenes" type="text" ng-model="formData.imagenes" required>
-                </div>
-                <div class="form-group col-sm-4 col-md-3">
-                    <label for="nombre">Fecha de Registro</label>
-                    <input type="date" class="form-control" name="registry_date" ng-model="formData.registry_date" id="date"  required>
-                </div>
-                <div class="form-group col-xs-8 col-sm-8 col-md-9"></div>
-                <div class="form-group col-xs-4 col-sm-4 col-md-3">
-                    <button class="btn btn-primary">Cancelar</button>
-                    <button class="btn btn-primary" ng-click="createProject()">Crear</button>
-                </div>
-            </form>
-
-        </div>
-        <br>
-        <div class="container">
-            <h3>Listado de Proyectos</h3>
-
+            </div>
             <div class="table-responsive">
-                <table class="table table-condensed">
-
-                    <tr class="danger">
-                        <th>No</th>
-                        <th>Nombre</th>
-                        <th>Fecha de creación</th>
-                        <th>Personas Beneficiadas</th>
-                        <th>Acciones</th>
-                    </tr>
-
-                    <tr ng-repeat="project in projects">
-                        <td>{{project.id}}</td>
-                        <td>{{project.name}}</td>
-                        <td>{{project.createdAt | date:'MM/dd/yyyy @ h:mma'}}</td>
-                        <td>{{project.benefits}}</td>
-                        <td>
-                            <button type="button" data-toggle="modal" data-target="#myModal"><i
-                                    class="fa fa-pencil"></i></button>
-                            <button type="button" class='delete' ng-click="deleteProject(project.id)"><i
-                                    class="fa fa-trash"></i></button>
-                            <button type="button"><i class="fa fa-file-o"></i></button>
-                        </td>
-                    </tr>
-
-                </table>
-                <ul class="pagination">
-                    <li><a href="#">1</a></li>
-                    <li class="active"><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                </ul>
+                <table id="example" class="table table-striped table-bordered" width="100%"></table>
             </div>
         </div>
 
     </section>
-</div>
 
-
+<div class="modal fade" id="confirm-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">{{data_record[1]}}</h4>
+      </div>
+      <div class="modal-body">
+        <p>Delete project <b>{{data_record[1]}}</b></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" id="del_true" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

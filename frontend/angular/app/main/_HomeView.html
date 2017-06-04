@@ -1,0 +1,19 @@
+<!--<div ng-init="callUserView()"></div>-->
+
+<ul>
+    <li>
+        <a href="" ng-click="projects()">Proyectos</a>
+    </li>
+    <li>
+        <a href="" ng-click="userLogin()">{{ login }}</a>
+    </li>
+    <li>
+        <a href="" ng-click="userRegister()">{{ register }}</a>
+    </li>
+    <li ng-if="user.role_admin">
+        <a>ADMIN</a>
+    </li>
+    <li ng-if="user.role_default">
+        <a>DEFAULT</a>
+    </li>
+</ul>

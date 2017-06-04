@@ -1,0 +1,12 @@
+[middle] {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+[middle] .middle-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+[middle][middle-horizontal] .middle-wrapper > * {
+  margin: auto;
+}

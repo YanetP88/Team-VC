@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>NehuenChess</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Chess analysis and multilayer game">
+    <meta name="keywords" content="chess">
+    <meta name="author" content="Eduardo M. Fírvida Donéstevez">
+
+    <!--<link rel="stylesheet" href="assets/css/main.css">-->
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="libs/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="libs/angular-middle/angular-middle.css">
+
+    <script src="libs/require/require.js" data-main="dependencies.js"></script>
+</head>
+
+<body ng-style="setBackground()">
+
+<div class="view-container layer" middle middle-horizontal>
+    <div class="container content" ng-view></div>
+</div>
+</body>
+</html>

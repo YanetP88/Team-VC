@@ -1,0 +1,116 @@
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-signin .form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.account-wall {
+    padding: 40px 0px 20px 0px;
+    margin-top: 40px;
+    background-color: rgba(244, 244, 244, 0.1);
+    box-shadow: 0 15px 20px 0 rgba(10, 10, 10, 0.9);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 35%;
+}
+
+.login-title {
+    color: #555;
+    font-size: 22px;
+    font-weight: 400;
+    display: block;
+}
+
+.profile-img {
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.select-img {
+    border-radius: 50%;
+    display: block;
+    height: 75px;
+    margin: 0 30px 10px;
+    width: 75px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.select-name {
+    display: block;
+    margin: 30px 10px 10px;
+}
+
+.logo-img {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.avatar{
+    width: 55%;
+    height: 55%;
+    margin: auto;
+}
+.avatar img{
+    width: 80%;
+    height: 80%;
+    margin: auto;
+}
+
+.avatar .change_avatar {
+    z-index: 10;
+    /*color: #ffffff;*/
+    position: relative;
+    top: -90px;
+    left: 20%;
+    visibility: hidden;
+    cursor: pointer;
+}
+
+.avatar:hover .change_avatar {
+    visibility: visible;
+    cursor: pointer;
+    /*color: #ffffff;*/
+}
+
+.avatar:hover img{
+    opacity: 0.4;
+    cursor: pointer;
+}

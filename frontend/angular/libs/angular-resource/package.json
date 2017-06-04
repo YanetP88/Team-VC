@@ -1,0 +1,59 @@
+{
+  "name": "angular-resource",
+  "version": "1.4.5",
+  "description": "AngularJS module for interacting with RESTful server-side data sources",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/angular/angular.js.git"
+  },
+  "keywords": [
+    "angular",
+    "framework",
+    "browser",
+    "rest",
+    "client-side"
+  ],
+  "author": {
+    "name": "Angular Core Team",
+    "email": "angular-core+npm@google.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/angular/angular.js/issues"
+  },
+  "homepage": "http://angularjs.org",
+  "gitHead": "1b00ddb9576b35da312fc044f114e4ec31bc7377",
+  "_id": "angular-resource@1.4.5",
+  "_shasum": "0c1e3c37fe803b879c3c279c9f55607f98b1b45f",
+  "_from": "angular-resource@latest",
+  "_npmVersion": "2.0.2",
+  "_nodeVersion": "0.10.26",
+  "_npmUser": {
+    "name": "angularcore",
+    "email": "angular-core+npm@google.com"
+  },
+  "maintainers": [
+    {
+      "name": "roylines",
+      "email": "roy@roylines.co.uk"
+    },
+    {
+      "name": "angularcore",
+      "email": "angular-core+npm@google.com"
+    },
+    {
+      "name": "petebd",
+      "email": "pete@bacondarwin.com"
+    }
+  ],
+  "dist": {
+    "shasum": "0c1e3c37fe803b879c3c279c9f55607f98b1b45f",
+    "tarball": "http://npm.uclv.edu.cu/angular-resource/-/angular-resource-1.4.5.tgz"
+  },
+  "directories": {},
+  "_resolved": "http://npm.uclv.edu.cu/angular-resource/-/angular-resource-1.4.5.tgz"
+}

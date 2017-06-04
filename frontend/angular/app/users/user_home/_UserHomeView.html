@@ -1,0 +1,123 @@
+<div class="container">
+    <h1>Edit Profile</h1>
+    <hr>
+    <div class="cropper tab-pane active">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-3">
+                <div id="crop-avatar" class="avatar avatar-view">
+                    <img class="profile-img"
+                         src="avatars/{{user.avatar}}"
+                         alt="Avatar">
+                    <p class="change_avatar"><b>Click to Change</b></p>
+                </div>
+            </div>
+
+            <!-- edit form column -->
+            <div class="col-md-9 personal-info">
+                <div class="alert alert-info alert-dismissable" >
+                    {{server_message}}
+                </div>
+                <h3>Personal info</h3>
+
+                <form class="form-horizontal" role="form" method="post" name="userForm" >
+                    <input type="hidden" name="avatar" ng-model="user.avatar"/>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">First name:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" name="first_name" ng-model="user.first_name" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Last name:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" name="last_name" ng-model="user.last_name" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Email:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" name="email" ng-model="user.email" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Username:</label>
+                        <div class="col-md-8">
+                            <input class="form-control" name="user_name" ng-model="user.user_name" type="text" readonly>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Password:</label>
+                        <div class="col-md-8">
+                            <input class="form-control" value="11111122333" type="password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Confirm password:</label>
+                        <div class="col-md-8">
+                            <input class="form-control" value="11111122333" type="password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label"></label>
+                        <div class="col-md-8">
+                            <input class="btn btn-primary" value="Save Changes" type="submit" ng-click="updateUser()">
+                            <span></span>
+                            <!--<input class="btn btn-default" value="Cancel" type="reset">-->
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label"
+             role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <form class="avatar-form" action="/users/avatar/" enctype="multipart/form-data"
+                          method="post">
+                        <div class="modal-body">
+                            <div class="avatar-body">
+
+                                <!-- Upload image and data -->
+                                <div class="avatar-upload">
+                                    <input type="hidden" class="avatar-src" name="avatar_src">
+                                    <input type="hidden" class="avatar-data" name="avatar_data">
+                                    <label for="avatarInput">Local upload</label>
+                                    <input type="file" class="avatar-input" id="avatarInput" name="avatar_file">
+                                </div>
+
+                                <!-- Crop and preview -->
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="avatar-wrapper"></div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="avatar-preview preview-lg"></div>
+                                        <div class="row">
+                                            <div class="pull-left avatar-preview preview-md"></div>
+                                            <div class="pull-right avatar-preview preview-sm"></div>
+                                        </div>
+                                        <p></p>
+                                        <button type="submit" class="btn btn-primary btn-block avatar-save">
+                                            Done
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div> -->
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal -->
+
+        <!-- Loading state -->
+        <div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
+    </div>
+</div>
+<hr>

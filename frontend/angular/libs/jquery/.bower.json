@@ -1,0 +1,19 @@
+{
+  "name": "jquery",
+  "main": "dist/jquery.js",
+  "license": "MIT",
+  "ignore": [
+    "package.json"
+  ],
+  "keywords": [
+    "jquery",
+    "javascript",
+    "browser",
+    "library"
+  ],
+  "_source": "nexus+http://nexus.uclv.edu.cu:8081/repository/bower-proxy/jquery",
+  "_target": ">=1.7",
+  "_release": "3.2.1",
+  "version": "3.2.1",
+  "_originalSource": "jquery"
+}

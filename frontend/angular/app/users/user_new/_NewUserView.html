@@ -1,0 +1,79 @@
+<div class="col-sm-5 col-md-4" middle middle-horizontal>
+    <div class="account-wall">
+        <div id="my-tab-content" class="tab-content">
+            <div class="cropper tab-pane active">
+                <div id="crop-avatar" class="avatar avatar-view">
+                    <img class="profile-img"
+                         src="avatars/male_avatar.jpg"
+                         alt="Avatar">
+                    <p class="change_avatar"><b>Change the avatar</b></p>
+                </div>
+
+                <form class="form-signin" method="post" action="/users/create">
+                    <input type="hidden" name="avatar" value="{{ avatar }}"/>
+                    <input type="text" class="form-control" placeholder="User Name" name="user_name" required
+                           autofocus>
+                    <p></p>
+
+                    <input type='password' class="form-control" id='pw1' name='user_password' placeholder="Type Password"
+                           ng-model='pw1' ng-required/>
+                    <p></p>
+                    <input type='password' class="form-control" id='pw2' name='user_password2' placeholder="Confirm Password"
+                           ng-model='pw2' ng-required pw-check='pw1'/>
+
+                    <input type="submit" class="btn btn-lg btn-default btn-block" value="Create"/>
+                </form>
+
+
+                <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label"
+                     role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <form class="avatar-form" action="/users/avatar/" enctype="multipart/form-data"
+                                  method="post">
+                                <div class="modal-body">
+                                    <div class="avatar-body">
+
+                                        <!-- Upload image and data -->
+                                        <div class="avatar-upload">
+                                            <input type="hidden" class="avatar-src" name="avatar_src">
+                                            <input type="hidden" class="avatar-data" name="avatar_data">
+                                            <label for="avatarInput">Local upload</label>
+                                            <input type="file" class="avatar-input" id="avatarInput" name="avatar_file">
+                                        </div>
+
+                                        <!-- Crop and preview -->
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                                <div class="avatar-wrapper"></div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="avatar-preview preview-lg"></div>
+                                                <div class="row">
+                                                    <div class="pull-left avatar-preview preview-md"></div>
+                                                    <div class="pull-right avatar-preview preview-sm"></div>
+                                                </div>
+                                                <p></p>
+                                                <button type="submit" class="btn btn-primary btn-block avatar-save">
+                                                    Done
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div> -->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.modal -->
+
+                <!-- Loading state -->
+                <div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>
+            </div>
+        </div>
+    </div>
+</div>
