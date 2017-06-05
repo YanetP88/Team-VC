@@ -11,6 +11,9 @@ require.config({
         angular_route            : 'libs/angular-route/angular-route',
         angular_css              : 'libs/angular-css/angular-css',
         angular_middle           : 'libs/angular-middle/angular-middle',
+        angular_upload           : 'libs/angular-file-upload/dist/angular-file-upload.min',
+        es5_shim                 : 'libs/es5-shim/es5-shim.min',
+        es5_sham                 : 'libs/es5-shim/es5-sham.min',
         cropper                  : 'libs/cropper/cropper',
         u_datatables             : 'libs/Ultimate-DataTable/dist/3.3.1-SNAPSHOT/js/ultimate-datatable-3.3.1-SNAPSHOT.min',
         moment                   : 'libs/moment/min/moment.min',
@@ -47,7 +50,8 @@ require.config({
         angular_resource    : ['angular'],
         angular_route       : ['angular'],
         angular_css         : ['angular','angular_route'],
-        angular_middle      : ['angular']
+        angular_middle      : ['angular'],
+        angular_upload      : ['angular','boostrap','es5_shim','es5_sham']
     },
     deps: ['app']
 });

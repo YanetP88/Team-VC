@@ -35,6 +35,7 @@ app.use(cookieParser()); // read cookies (needed for auth)
 
 //view engine setup
 app.use(express.static(path.join(__dirname, '../frontend/')));
+app.use(express.static(path.join(__dirname, '../upload_files/')));
 
 //required for passport
 //app.use(session({ secret: 'iloveyoudear...' })); // session secret

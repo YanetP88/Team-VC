@@ -1,7 +1,16 @@
-define(['angularAMD', 'angular_route', 'angular_css', 'angular_middle', 'UsersServices','u_datatables'], function (angularAMD) {
+define([
+    'angularAMD',
+    'angular_route',
+    'angular_css',
+    'angular_middle',
+    'UsersServices',
+    'u_datatables',
+    'angular_upload'
+], function (angularAMD) {
 
     var app = angular.module("iDoo",
         [
+            'angularFileUpload',
             'ultimateDataTableServices',
             'ngRoute',
             'door3.css',
@@ -59,7 +68,7 @@ define(['angularAMD', 'angular_route', 'angular_css', 'angular_middle', 'UsersSe
                 angularAMD.route({
                     templateUrl: 'app/projects/projects_new/_ProjectsNewView.html',
                     controller: 'ProjectsNewController',
-                    css: ['app/users/user_new/_NewUser.css'] // fix this
+                    css: ['app/projects/projects_new/_ProjectsNew.css'] // fix this
                 })
             )
     });
